@@ -1,0 +1,46 @@
+::selection {
+  background-color: #080135;
+  color: #fff;
+}
+::-moz-selection {
+  background-color: #080135;
+  color: #fff;
+}
+
+.theme-color {
+  color: #080135;
+}
+
+.home-banner .social-icons a:hover,
+.btn-theme, 
+.theme-after:after,
+.theme-bg {
+  background: #080135;
+}
+
+/*---------------------------------
+  Color
+-----------------------------------*/
+
+.dark-color {
+  color: #292929;
+}
+.light-color {
+  color: #fff;
+}
+.yellow-bg {
+  background-color: #f8c964;
+}
+.yellow-after:after {
+  background-color: #f8c964;
+}
+.blue-bg {
+  background-color: #2BDA8E;
+}
+.blue-after:after {
+  background-color: #2BDA8E;
+}
+
+.white-bg {
+  background-color: #fff;
+}
