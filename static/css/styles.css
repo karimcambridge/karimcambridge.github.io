@@ -144,7 +144,7 @@ body.dark-body {
     top: 0;
     bottom: 0;
     width: 20px;
-    background: #fff;
+    background: #e2f8f8;
     right: 0px;
     z-index: 1;
     position: fixed;
@@ -152,7 +152,7 @@ body.dark-body {
 }
 .page-content {
   padding: 50px;
-  max-width: 1200px;
+  /*max-width: 1200px;*/
   width: 100%;
 }
 
@@ -450,18 +450,22 @@ body.dark-body {
 /*---------------------------------
   01. Home
 -----------------------------------*/
+.user-image {
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
 .v-center-box {
   min-height: 100%;
 }
-.home-banner {
-  background: #fff;
-}
+
 .home-banner .page-content .v-center-box {
   min-height: calc(100vh - 100px);
 }
 .home-banner img {
   max-height: 100vh;
-  margin: 0 auto
+  margin: 0 auto;
 }
 .home-text {
   padding-left: 50px;
@@ -544,7 +548,7 @@ body.dark-body {
 }
 
 @media(max-width: 991px){
-  .home-user-avtar {
+  .home-user-avatar {
     padding-top: 60px;
   }
   .home-banner .page-content .v-center-box {
@@ -860,7 +864,7 @@ body.dark-body {
 
 .portfolio-col {
   padding: 10px;
-  background: #fff;
+  background: #f2f8f8;
   border: 1px solid #ddd;
   border-bottom: 4px solid #ddd;
 }
