@@ -7,7 +7,7 @@
       * Pre Load
     ----------------------*/
     ALX.WebLoad = function(){
-      document.getElementById("loading").style.display = "none"; 
+      document.getElementById("loading").style.display = "none";
     }
 
 
@@ -71,7 +71,7 @@
     * Isotope
     ----------------------*/
     ALX.MasoNry = function () {
-      var portfolioWork = $('.portfolio-content');
+      let portfolioWork = $('.portfolio-content');
         $(portfolioWork).isotope({
             resizable: false,
             itemSelector: '.portfolio-item',
@@ -89,6 +89,24 @@
           $(portfolioFilter).on( 'click', function() {
             $(this).addClass('active').siblings().removeClass('active');
           });
+          let portfolioWork2 = $('.portfolio-content2');
+          $(portfolioWork2).isotope({
+              resizable: false,
+              itemSelector: '.portfolio-item2',
+              layoutMode: 'masonry',
+              filter: '*'
+            });
+            //Filtering items on portfolio.html
+            var portfolioFilter = $('.filter2 li');
+            // filter items on button click
+            $(portfolioFilter).on( 'click', function() {
+              var filterValue = $(this).attr('data-filter');
+              portfolioWork2.isotope({ filter: filterValue });
+            });
+            //Add/remove class on filter list
+            $(portfolioFilter).on( 'click', function() {
+              $(this).addClass('active').siblings().removeClass('active');
+            });
     }
 
 
@@ -130,10 +148,10 @@
               'WEB DESIGNER',
             ],
             breakLines: false
-        }); 
+        });
     }
 
-    
+
     // Window on Load
     $(window).on("load", function(){
       ALX.MasoNry(),
