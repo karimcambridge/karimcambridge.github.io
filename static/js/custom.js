@@ -143,9 +143,8 @@
             loop:true,
             strings: [
               'SOFTWARE ENGINEER',
-              'DEVELOPER',
-              'SOFTWARE CONSULTANT AND ANALYSER',
-              'WEB DESIGNER',
+              'GAME DEVELOPER',
+              'SOFTWARE CONSULTANT',
             ],
             breakLines: false
         });
