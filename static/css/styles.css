@@ -906,7 +906,6 @@ body.dark-body {
 }
 
 .portfolio-hover-01 .hover {
-  background: rgba(255, 255, 255, 0.62);
   position: absolute;
   bottom: 0;
   visibility: hidden;
