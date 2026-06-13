@@ -1,0 +1,352 @@
+/*===========================================================
+  components.css
+  Modern UI added during the 2026 modernisation:
+   - Avatar fills the left column (no left gap)
+   - Social icons 30% larger
+   - Keyboard shortcut badges (nav menu)
+   - Typewriter caret
+   - Portfolio filter transitions
+   - Lightbox (replaces Magnific Popup)
+   - Share button + popover (Web Share API + fallback)
+  Loaded after styles.css / default.css so it can refine them.
+===========================================================*/
+
+/*---------------------------------------------
+  Home avatar — fill the whole left column
+---------------------------------------------*/
+@media (min-width: 992px) {
+  .home-banner .home-user-avatar {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+  }
+  .home-banner .home-user-avatar img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+/*---------------------------------------------
+  Social icons — 30% larger
+---------------------------------------------*/
+.home-banner .social-icons li a {
+  display: inline-block;
+  font-size: 1.3em; /* 30% larger than the previous inherited size */
+  line-height: 1;
+}
+
+/*---------------------------------------------
+  Typewriter caret
+---------------------------------------------*/
+#type-it::after {
+  content: '|';
+  margin-left: 2px;
+  font-weight: 300;
+  animation: typeit-caret 1s steps(1) infinite;
+}
+@keyframes typeit-caret {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+/*---------------------------------------------
+  Keyboard shortcut badges (nav menu)
+---------------------------------------------*/
+.pages-nav .link--page {
+  position: relative; /* anchor for .nav-kbd */
+}
+.nav-kbd {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  color: rgba(255, 255, 255, .35);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  pointer-events: none;
+  user-select: none;
+  transition: opacity .3s ease;
+}
+
+/*---------------------------------------------
+  Portfolio filter
+---------------------------------------------*/
+.portfolio-item,
+.portfolio-item2 {
+  transition: opacity .3s ease, transform .3s ease;
+}
+.portfolio-item.is-hidden,
+.portfolio-item2.is-hidden {
+  display: none;
+}
+
+/*---------------------------------------------
+  Share button + popover
+---------------------------------------------*/
+.share-toggle {
+  position: absolute;
+  top: 0;
+  right: 60px;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  font-size: 20px;
+  line-height: 60px;
+  text-align: center;
+  transition: background-color .25s ease;
+}
+
+.share-popover {
+  position: fixed;
+  top: 64px;
+  right: 8px;
+  width: 220px;
+  padding: 6px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .25);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+.share-popover.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.share-popover .share-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #222;
+  font: 500 14px 'Work Sans', sans-serif;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+.share-popover .share-option i {
+  width: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+.share-popover .share-option:hover,
+.share-popover .share-option:hover i {
+  color: #fff;
+}
+
+/*---------------------------------------------
+  Lightbox (image + video)
+---------------------------------------------*/
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 1, 53, .94);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s;
+}
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 92vw;
+}
+.lightbox__stage img {
+  max-width: 92vw;
+  max-height: 80vh;
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
+}
+.lightbox__caption {
+  margin-top: 14px;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: .5px;
+  text-align: center;
+}
+.lightbox__video {
+  position: relative;
+  width: min(92vw, 960px);
+  aspect-ratio: 16 / 9;
+}
+.lightbox__video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 6px;
+}
+.lightbox__close,
+.lightbox__nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+.lightbox__close:hover,
+.lightbox__nav:hover {
+  background: rgba(255, 255, 255, .3);
+}
+.lightbox__close { top: 20px; right: 20px; }
+.lightbox__nav { top: 50%; transform: translateY(-50%); }
+.lightbox__prev { left: 20px; }
+.lightbox__next { right: 20px; }
+.lightbox__nav[hidden] { display: none; }
+
+@media (max-width: 600px) {
+  .lightbox__prev { left: 8px; }
+  .lightbox__next { right: 8px; }
+  .lightbox__close,
+  .lightbox__nav {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+/*===========================================================
+  Page visibility
+  -----------------------------------------------------------
+  Inactive pages are hidden from layout by JS (display:none).
+  During menu-open and transitions they are temporarily shown
+  at safe off-screen positions so they never flash.
+===========================================================*/
+
+/*===========================================================
+  Transition override
+  -----------------------------------------------------------
+  Opacity must NOT animate — it snaps instantly so ghost pages
+  can never be visible during a slide.  Only transform animates.
+===========================================================*/
+.js .pages-stack--open .page {
+  transition: transform 0.45s;
+}
+
+/*===========================================================
+  Nav overlay
+  -----------------------------------------------------------
+  The nav sits above .pages-stack (z-index: 100) so the
+  menu links are clickable.  A subtle dark background keeps
+  the white text legible against the page behind it.
+===========================================================*/
+.js .pages-nav {
+  z-index: 200;
+}
+.js .pages-nav--open {
+  background: rgba(0, 0, 0, .82);
+}
+
+/*===========================================================
+  Mobile layout (≤ 991px)
+  -----------------------------------------------------------
+  The 3‑D page-stack only works on desktop.  On mobile we
+  disable the perspective transforms and fall back to a
+  simple single-page scrollable layout.
+===========================================================*/
+@media (max-width: 991px) {
+  /* Let the body scroll naturally (fixes iOS position:fixed). */
+  html.js,
+  .js body {
+    overflow: visible;
+    height: auto;
+  }
+
+  /* Disable all 3‑D transform / opacity / z-index tricks.
+     The page-stack animation is desktop-only. */
+  .js .page {
+    position: relative !important;
+    height: auto;
+    min-height: 100vh;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: auto !important;
+    overflow-y: visible;
+  }
+
+  /* On mobile, inactive pages are simply hidden. */
+  .js .page--inactive {
+    display: none;
+  }
+
+  /* Header stays firmly fixed. */
+  .header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: 60px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Compact buttons for mobile. */
+  .share-toggle,
+  .header .menu-toggle,
+  .header .menu-toggle .menu-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .share-toggle {
+    position: static;
+    line-height: 48px;
+    font-size: 18px;
+    border-radius: 0;
+  }
+
+  .header .menu-toggle {
+    position: static;
+    height: 48px;
+    width: 48px;
+  }
+
+  /* Slightly less top padding now that the header is tighter. */
+  .page-content {
+    padding-top: 70px;
+  }
+}

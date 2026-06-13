@@ -12,7 +12,9 @@
 }
 
 .home-banner .social-icons a:hover,
-.btn-theme, 
+.share-toggle:hover,
+.share-popover .share-option:hover,
+.btn-theme,
 .theme-after:after,
 .theme-bg {
   background: #080135;
